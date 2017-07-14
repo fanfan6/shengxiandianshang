@@ -129,3 +129,10 @@ def info(request):
 def logout(request):
     request.session.flush()
     return render(request, 'txuser/login.html')
+
+
+def islogin(request):
+    result = 0
+    if request.session.has_key('uid'):
+        result = 1
+    return JsonResponse({'islogin': result})
