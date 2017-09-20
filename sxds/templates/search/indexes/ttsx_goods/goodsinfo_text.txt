@@ -1,3 +1,0 @@
-{{object.gtitle}}
-{{object.gsubtitle}}
-{{object.gcontent}}
