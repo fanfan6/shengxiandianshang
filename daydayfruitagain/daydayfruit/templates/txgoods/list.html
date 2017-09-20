@@ -1,0 +1,44 @@
+{% extends 'txgoods/base.html' %}
+
+{% block detail %}
+	<div class="breadcrumb">
+		<a href="#">全部分类</a>
+		<span>></span>
+		<a href="#">{{ typelist.ttitle }}</a>
+	</div>
+{% endblock detail %}
+
+{% block rightdetail %}
+    <div class="r_wrap fr clearfix">
+        <div class="sort_bar">
+            <a href="/list{{ typelist.id }}_1_1/" class="active">默认</a>
+            <a href="/list{{ typelist.id }}_1_2/">价格</a>
+            <a href="/list{{ typelist.id }}_1_3/">人气</a>
+        </div>
+
+        <ul class="goods_type_list clearfix">
+        {% for goods in page %}
+            <li>
+                <a href="{{ goods.id }}"><img src="/static/{{ goods.gpic }}"></a>
+                <h4><a href="{{ goods.id }}">{{ goods.gtitle }}</a></h4>
+                <div class="operate">
+                    <span class="prize">￥{{ goods.gprice }}</span>
+                    <span class="unit">{{ goods.gprice }}/{{ goods.gunit }}</span>
+                    <a href="#" class="add_goods" title="加入购物车"></a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+
+        <div class="pagenation">
+            <a href="#"> <上一页 </a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">下一页></a>
+        </div>
+    </div>
+{% endblock rightdetail %}
+
